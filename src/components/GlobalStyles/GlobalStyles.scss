@@ -1,0 +1,53 @@
+@import 'normalize.css';
+// @import url('https://data.jsdelivr.com/v1/package/npm/segoe-fonts/badge');
+@import 'antd/dist/antd.css';
+
+:root {
+    --dark-bg: #202023;
+    --light-bg: #f0e7db;
+    --black: #000;
+    --white: #fff;
+    --text-color: #f7f7f7;
+    --highlight: #6d9886;
+
+    --font-family: segoe UI;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: 1.6rem;
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    overflow-y: overlay;
+}
+
+//Responsive
+@mixin breakpoint($point) {
+    @if $point == md {
+        // 768px
+        @media (min-width: 48em) {
+            @content;
+        }
+    }
+}
+
+.container {
+    width: 90vw;
+    margin: auto;
+    z-index: 0;
+
+    @include breakpoint(md) {
+        width: 60vw;
+        margin: auto;
+    }
+}

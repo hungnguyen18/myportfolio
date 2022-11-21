@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import { useCallback, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Header from './layout/Header';
+import publicRoutes from './routes';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [isModeTheme, setIsModeTheme] = useState(true);
+
+    const handleSetTheme = (mode) => {
+        setIsModeTheme(mode);
+    };
+
+    return (
+        <Router>
+            <div className="App">
+                <div
+                    style={{
+                        position: 'fixed',
+                        width: '100%',
+                        zIndex: 9999,
+                    }}
+                >
+                    <Header
+                        isModeTheme={isModeTheme}
+                        onSetTheme={handleSetTheme}
+                    />
+                </div>
+
+                <div>
+                    <Routes>
+                        {publicRoutes.map((route, index) => {
+                            const Page = route.component;
+
+                            return (
+                                <Route
+                                    key={index}
+                                    path={route.path}
+                                    element={<Page isModeTheme={isModeTheme} />}
+                                />
+                            );
+                        })}
+                    </Routes>
+                </div>
+            </div>
+        </Router>
+    );
 }
 
 export default App;

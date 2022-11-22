@@ -47,7 +47,7 @@ function Header({ isModeTheme, onSetTheme }) {
 
                         <motion.button
                             whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9, x: 1 }}
+                            whileTap={{ scale: 0.9 }}
                             className={cx(
                                 'mode',
                                 isModeTheme ? 'dark' : 'light'

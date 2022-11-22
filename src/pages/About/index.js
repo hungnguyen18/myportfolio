@@ -1,10 +1,12 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import { FaFacebook, FaGithub, FaPhoneAlt, FaTwitter } from 'react-icons/fa';
+import { FaFacebook, FaBriefcase, FaAward, FaHeadset } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 import styles from './About.module.scss';
 import { Avatar, Col, Row } from 'antd';
 import { Link } from 'react-router-dom';
+import { DevSvg } from '../../components/Svg';
 
 const cx = classNames.bind(styles);
 
@@ -13,7 +15,7 @@ function About({ isModeTheme }) {
         <div className={cx('body', isModeTheme ? 'dark' : 'light')}>
             <div className="container">
                 <Row gutter={[0, 40]}>
-                    <Col lg={14} md={24} sm={24}>
+                    <Col lg={14}>
                         <div
                             className={cx(
                                 'box',
@@ -44,61 +46,93 @@ function About({ isModeTheme }) {
                             </span>
                         </div>
                     </Col>
-                    <Col lg={6} offset={4}>
-                        <Avatar
-                            size={210}
-                            src="https://lh3.googleusercontent.com/a/ALm5wu1BwGSz_UtEx5KYyEhmxaa5kLl_re9JzqmYZhn1tA=s288-p-rw-no"
-                        />
+                    <Col
+                        lg={{ span: 6, offset: 4 }}
+                        sm={{ offset: 8 }}
+                        xs={{ offset: 4 }}
+                    >
+                        <div className={cx('avatar')}>
+                            <Avatar
+                                size={210}
+                                src="https://lh3.googleusercontent.com/a/ALm5wu1BwGSz_UtEx5KYyEhmxaa5kLl_re9JzqmYZhn1tA=s288-p-rw-no"
+                            />
+                        </div>
                     </Col>
                 </Row>
 
-                <span className={cx('title')}>
-                    About me
-                    <span className={cx('sub-title')}>My introduction</span>
-                </span>
+                <div className={cx('title')}>
+                    <h3 className={cx(isModeTheme ? 'dark' : 'light')}>
+                        About me
+                    </h3>
+                </div>
 
                 <div className={cx('about')}>
                     <Row>
-                        <Col lg={12}>
-                            <img
-                                src="https://pbs.twimg.com/media/FhXOk4EaAAEjTI8?format=jpg&name=4096x4096"
-                                alt=""
-                                className={cx('img')}
-                            />
+                        <Col lg={12} md={12} span={0}>
+                            <DevSvg />
                         </Col>
-                        <Col lg={12}>
-                            <div>
-                                <Row gutter={[40, 0]}>
-                                    <Col lg={8}>
-                                        <div className={cx('block')}>
-                                            <FaFacebook />
+                        <Col lg={12} md={12} xs={24}>
+                            <div className={cx('my-about')}>
+                                <Row gutter={[20, 20]}>
+                                    <Col lg={8} md={8} sm={12} xs={24}>
+                                        <div
+                                            className={cx(
+                                                'block',
+                                                isModeTheme ? 'dark' : 'light'
+                                            )}
+                                        >
+                                            <FaAward />
 
                                             <span>Experience</span>
 
-                                            <p>1 Year Working</p>
+                                            <p>Student</p>
                                         </div>
                                     </Col>
 
-                                    <Col lg={8}>
-                                        <div className={cx('block')}>
-                                            <FaFacebook />
+                                    <Col lg={8} md={8} sm={12} xs={24}>
+                                        <div
+                                            className={cx(
+                                                'block',
+                                                isModeTheme ? 'dark' : 'light'
+                                            )}
+                                        >
+                                            <FaBriefcase />
 
-                                            <span>Experience</span>
+                                            <span>Completed</span>
 
-                                            <p>1 Year Working</p>
+                                            <p>3+ Projects</p>
                                         </div>
                                     </Col>
 
-                                    <Col lg={8}>
-                                        <div className={cx('block')}>
-                                            <FaFacebook />
+                                    <Col lg={8} md={8} sm={12} xs={24}>
+                                        <div
+                                            className={cx(
+                                                'block',
+                                                isModeTheme ? 'dark' : 'light'
+                                            )}
+                                        >
+                                            <FaBriefcase />
 
-                                            <span>Experience</span>
+                                            <span>Completed</span>
 
-                                            <p>1 Year Working</p>
+                                            <p>3+ Projects</p>
                                         </div>
                                     </Col>
                                 </Row>
+
+                                <span className={cx('overview-about')}>
+                                    I am learning about Front-end programming.
+                                    Also I have I have a few small web pages in
+                                    the process of learning and creating.
+                                </span>
+
+                                <motion.button
+                                    whileHover={{ scale: 1.1 }}
+                                    whileTap={{ scale: 0.9 }}
+                                    className={cx('btn-download')}
+                                >
+                                    Download CV
+                                </motion.button>
                             </div>
                         </Col>
                     </Row>

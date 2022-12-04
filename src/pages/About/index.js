@@ -1,12 +1,18 @@
 import React from 'react';
 import classNames from 'classnames/bind';
-import { FaFacebook, FaBriefcase, FaAward, FaHeadset } from 'react-icons/fa';
+import {
+    FaBriefcase,
+    FaAward,
+    FaHeadset,
+    FaFileDownload,
+} from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 import styles from './About.module.scss';
 import { Avatar, Col, Row } from 'antd';
 import { Link } from 'react-router-dom';
 import { DevSvg } from '../../components/Svg';
+import Skills from '../Skills';
 
 const cx = classNames.bind(styles);
 
@@ -15,7 +21,7 @@ function About({ isModeTheme }) {
         <div className={cx('body', isModeTheme ? 'dark' : 'light')}>
             <div className="container">
                 <Row gutter={[0, 40]}>
-                    <Col lg={14}>
+                    <Col lg={14} sm={24}>
                         <div
                             className={cx(
                                 'box',
@@ -111,11 +117,11 @@ function About({ isModeTheme }) {
                                                 isModeTheme ? 'dark' : 'light'
                                             )}
                                         >
-                                            <FaBriefcase />
+                                            <FaHeadset />
 
-                                            <span>Completed</span>
+                                            <span>Support</span>
 
-                                            <p>3+ Projects</p>
+                                            <p>Online 24/7</p>
                                         </div>
                                     </Col>
                                 </Row>
@@ -137,6 +143,14 @@ function About({ isModeTheme }) {
                         </Col>
                     </Row>
                 </div>
+
+                <div className={cx('title')}>
+                    <h3 className={cx(isModeTheme ? 'dark' : 'light')}>
+                        Skills
+                    </h3>
+                </div>
+
+                <Skills />
             </div>
         </div>
     );

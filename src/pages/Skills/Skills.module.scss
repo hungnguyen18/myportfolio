@@ -1,0 +1,20 @@
+.skills {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 15px;
+
+    h1 {
+        text-align: center;
+    }
+}
+
+.body {
+    .content {
+        display: flex;
+
+        .icon {
+            margin-top: 4px;
+            margin-right: 10px;
+        }
+    }
+}
